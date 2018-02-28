@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+	<id>sql</id>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<formats>
+		<format>tar.bz2</format>
+	</formats>
+	<fileSets>
+		<fileSet>
+			<directory>${project.build.directory}/classes/sql</directory>
+			<outputDirectory>linshare-core-sql</outputDirectory>
+			<excludes>
+				<exclude>h2/**</exclude>
+				<exclude>common/**</exclude>
+				<exclude>**/Template_Migration_**</exclude>
+				<exclude>**/visualparadigm*.sh</exclude>
+				<exclude>**/add.new*.sh</exclude>
+				<exclude>**/sample**</exclude>
+				<exclude>**/tmp/**</exclude>
+				<exclude>**.md</exclude>
+			</excludes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/target/generated-sources</directory>
+			<outputDirectory>linshare-core-sql/postgresql</outputDirectory>
+			<excludes>
+				<exclude>annotations/**</exclude>
+			</excludes>
+		</fileSet>
+	</fileSets>
+</assembly>
